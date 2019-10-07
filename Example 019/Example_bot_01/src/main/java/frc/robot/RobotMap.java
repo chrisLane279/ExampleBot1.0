@@ -6,52 +6,22 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot;
+
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-
 import edu.wpi.first.wpilibj.SpeedController;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 
-
 public class RobotMap {
-  
-public TalonSRX mechanism1motor;
 
-public static CANSparkMax  drivetrainLeft;
-public static CANSparkMax  drivetrainRight;
-
-public PowerDistributionPanel PDP;
-
-
-
-public void init(){
-
-PDP = new PowerDistributionPanel(0);
-
-mechanism1motor = new TalonSRX(1);
-
-drivetrainLeft = new CANSparkMax(2,MotorType.kBrushless);
-drivetrainRight = new CANSparkMax(3,MotorType.kBrushless);
-
-
-} 
-
-
-
-
-
-
+  public static final int kPDP = 0;
+  public static final int kmechanism1motor = 1;
+  public static final int kdrivetrainLeft = 2;
+  public static final int kdrivetrainRight = 3;
 
 }
-
-
-
-
-
-
-
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -60,11 +30,11 @@ drivetrainRight = new CANSparkMax(3,MotorType.kBrushless);
  * floating around.
  */
 // For example to map the left and right motors, you could define the
-  // following variables to use with your drivetrain subsystem.
-  // public static int leftMotor = 1;
-  // public static int rightMotor = 2;
+// following variables to use with your drivetrain subsystem.
+// public static int leftMotor = 1;
+// public static int rightMotor = 2;
 
-  // If you are using multiple modules, make sure to define both the port
-  // number and the module. For example you with a rangefinder:
-  // public static int rangefinderPort = 1;
-  // public static int rangefinderModule = 1;
+// If you are using multiple modules, make sure to define both the port
+// number and the module. For example you with a rangefinder:
+// public static int rangefinderPort = 1;
+// public static int rangefinderModule = 1;

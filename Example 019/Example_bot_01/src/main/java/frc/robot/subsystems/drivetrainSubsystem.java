@@ -13,63 +13,63 @@ import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.RobotDrive;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
 
 public class drivetrainSubsystem extends Subsystem {
 
-public RobotDrive robotDrive;
+  public RobotDrive robotDrive;
+
+  public static TalonSRX mechanism1motor;
+
+  public static CANSparkMax drivetrainLeft;
+  public static CANSparkMax drivetrainRight;
+
+  public static PowerDistributionPanel PDP;
 
 
-
+  public drivetrainSubsystem() {
+    PDP = new PowerDistributionPanel(RobotMap.kPDP);
+    drivetrainLeft = new CANSparkMax(RobotMap.kdrivetrainLeft, MotorType.kBrushless);
+    drivetrainRight = new CANSparkMax(RobotMap.kdrivetrainRight, MotorType.kBrushless);
+    mechanism1motor = new TalonSRX(RobotMap.kmechanism1motor);
+    robotDrive = new RobotDrive(drivetrainLeft, drivetrainRight);
+  }
   @Override
   public void initDefaultCommand() {
-    
-
-
-
-
     // setDefaultCommand(new MySpecialCommand())
   }
 
-public void DTInit(){
+  public void arcadeDrive() {
 
-robotDrive = new RobotDrive(RobotMap.drivetrainLeft,RobotMap.drivetrainRight);
+    robotDrive.arcadeDrive(Robot.m_oi.driverStick, 
+                           constants.kdriverLxAxis, 
+                            Robot.m_oi.driverStick,
+                            constants.kdriverTriggerAxis);
 
-
-}
-
-
-public void arcadeDrive(){
-
-robotDrive.arcadeDrive(Robot.m_oi.driverStick, constants.kdriverLxAxis , Robot.m_oi.driverStick, constants.kdriverTriggerAxis);
-
-
-}
-
-
-
-public void creep(boolean x){
-
-if(x==true){
-
-robotDrive.drive(constants.kcreepSpeed,constants.kcreepCurve);
-
-}
-
-
-
-}
-
-public void eStop(){
-
-  RobotMap.drivetrainLeft.stopMotor();
-  RobotMap.drivetrainRight.stopMotor();
-  
   }
-  
 
+  public void creep(boolean x) {
+
+    if (x == true) {
+
+      robotDrive.drive(constants.kcreepSpeed, constants.kcreepCurve);
+
+    }
+
+  }
+
+  public void eStop() {
+
+    drivetrainLeft.stopMotor();
+    drivetrainRight.stopMotor();
+
+  }
 
 }
-
 
 /*-------XBOX controller mapping--------
 Buttons

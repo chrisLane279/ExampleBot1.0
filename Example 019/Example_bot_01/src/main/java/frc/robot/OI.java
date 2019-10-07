@@ -31,6 +31,7 @@ commandButton = new JoystickButton(driverStick, 1); //constructs a joystick butt
 
 }//ends init
 
+
 //-----------------------------------------driver buttons 
 public static JoystickButton driverA = new JoystickButton(driverStick,1);
 public static JoystickButton driverB= new JoystickButton(driverStick,2);
@@ -59,26 +60,6 @@ public static JoystickButton operatorLB= new JoystickButton(operatorStick,5);
 
   
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
 
