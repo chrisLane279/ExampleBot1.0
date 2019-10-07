@@ -17,9 +17,9 @@ import edu.wpi.first.wpilibj.PowerDistributionPanel;
 public class RobotMap {
 
   public static final int kPDP = 0;
-  public static final int kmechanism1motor = 1;
-  public static final int kdrivetrainLeft = 2;
-  public static final int kdrivetrainRight = 3;
+  public static final int kmechanism1motor = 70;
+  public static final int kdrivetrainLeft = 1;
+  public static final int kdrivetrainRight = 2;
 
 }
 

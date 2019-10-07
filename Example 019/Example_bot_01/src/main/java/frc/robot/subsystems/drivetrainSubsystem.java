@@ -46,7 +46,7 @@ public class drivetrainSubsystem extends Subsystem {
   public void arcadeDrive() {
 
     robotDrive.arcadeDrive(Robot.m_oi.driverStick, 
-                           constants.kdriverLxAxis, 
+                               constants.kdriverLxAxis, 
                             Robot.m_oi.driverStick,
                             constants.kdriverTriggerAxis);
 
