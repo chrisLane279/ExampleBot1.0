@@ -18,11 +18,12 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
+import edu.wpi.first.wpilibj.DriverStation;
 
 public class drivetrainSubsystem extends Subsystem {
 
   public RobotDrive robotDrive;
-
+  public DriverStation driverStation;
   public static TalonSRX mechanism1motor;
 
   public static CANSparkMax drivetrainLeft;
@@ -32,12 +33,14 @@ public class drivetrainSubsystem extends Subsystem {
 
 
   public drivetrainSubsystem() {
+    driverStation = new DriverStation();
     PDP = new PowerDistributionPanel(RobotMap.kPDP);
     drivetrainLeft = new CANSparkMax(RobotMap.kdrivetrainLeft, MotorType.kBrushless);
     drivetrainRight = new CANSparkMax(RobotMap.kdrivetrainRight, MotorType.kBrushless);
     mechanism1motor = new TalonSRX(RobotMap.kmechanism1motor);
     robotDrive = new RobotDrive(drivetrainLeft, drivetrainRight);
   }
+
   @Override
   public void initDefaultCommand() {
     // setDefaultCommand(new MySpecialCommand())
@@ -45,13 +48,10 @@ public class drivetrainSubsystem extends Subsystem {
 
   public void arcadeDrive() {
 
-    robotDrive.arcadeDrive(Robot.m_oi.driverStick, 
-                               constants.kdriverLxAxis, 
-                            Robot.m_oi.driverStick,
-                            constants.kdriverTriggerAxis);
+    robotDrive.arcadeDrive(Robot.m_oi.driverStick,constants.kdriverLxAxis,  Robot.m_oi.driverStick,constants.kdriverTriggerAxis);
 
-  }
-
+}
+  
   public void creep(boolean x) {
 
     if (x == true) {

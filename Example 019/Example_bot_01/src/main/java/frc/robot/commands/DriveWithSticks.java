@@ -30,7 +30,9 @@ Robot.m_drivetrainsubsystem.arcadeDrive();
 
   // Make this return true when this Command no longer needs to run execute()
   protected boolean isFinished() {
-      return false;//bot is always driving
+
+    return false; //bot is always driving
+
   }
 
   // Called once after isFinished returns true
@@ -44,3 +46,22 @@ Robot.m_drivetrainsubsystem.arcadeDrive();
       end();
   }
 }
+
+/*
+ protected boolean isFinished() {
+
+if(Robot.m_drivetrainsubsystem.driverStation.getInstance().isAutonomous() == true |
+   Robot.m_drivetrainsubsystem.driverStation.getInstance().getMatchTime() <= 0.20){
+
+return true;
+
+}
+
+else{
+
+      return false;//bot is always driving
+
+}
+
+  }
+*/

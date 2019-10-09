@@ -10,7 +10,7 @@ package frc.robot;
 
 public class constants {
    
-public static int kdriverLxAxis = 1;
+public static int kdriverLxAxis = 0;
 public static int kdriverTriggerAxis = 3;
 public static double kcreepCurve = 0.00;
 public static double kcreepSpeed = 0.25;
